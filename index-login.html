@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Login Page in HTML with CSS Code Example</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"><link rel="stylesheet" href="./login-style.css">
+
+<meta name="viewport" content="user-scalable=no,width=device-width"/>
+
+<script type="text/javascript" src="js/jquery.js"></script>
+</head>
+</head>
+<body>
+<form type=post id="frmCar" action="index.html">
+<!-- partial:index.partial.html -->
+<div class="box-form">
+	<div class="left">
+		<div class="overlay">
+		<h1>Speed Detection</h1>
+		<p>Login to with your Car ID to view speed violation for your vehicle </p>
+		</div>
+	</div>
+	
+	
+		<div class="right">
+		<h5>Login</h5>
+		<p>Don't have an account? <a href="test.html">Creat Your Account</a> it takes less than a minute</p>
+		<div class="inputs">
+			<input type="text" id="carID" placeholder="Enter Car ID">
+			<br>
+			<input type="password" id="pwd" placeholder="Enter Password">
+		</div>
+			
+			<br><br>
+			
+		<div class="remember-me--forget-password">
+				<!-- Angular -->
+	<label>
+		<input type="checkbox" name="item" checked/>
+		<span class="text-checkbox">Remember me</span>
+	</label>
+			<p>forget password?</p>
+		</div>
+			
+			<br>
+			<button type=submit value="Submit" id="list" class="btn btn-success">Login</button>
+	</div>
+	
+</div>
+<!-- partial -->
+  </form>
+   <script>
+      // Get a reference to the form so that we can set up an event handler
+      // for its submit event
+      var form = document.getElementById("frmCar");
+
+      // Now, set up a submit event handler for the form
+      form.addEventListener("submit", function(){
+
+        // Only when the form has been submitted do you want the textbox value
+        var inputTest = document.getElementById('carID').value;
+		inputTest = inputTest.substring(3);
+        localStorage.setItem( 'inputCarID', inputTest );
+		//debugger;
+		var queryString = "?para1=" + inputTest;
+        window.location.href = "index.html" + queryString;
+		//alert('Inserted Data' + window.location.href);
+
+      });
+
+    </script>
+</body>
+</html>
